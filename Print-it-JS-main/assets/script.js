@@ -5,7 +5,7 @@ const slides = [
 	},
 	{
 		"image": "./assets/images/slideshow/slide2.jpg",
-		"tagLine": "Tirages haute définition grand format pour vos bureaux et events"
+		"tagLine": "Tirages haute définition grand format <span> pour vos bureaux et events</span>"
 	},
 	{
 		"image": "./assets/images/slideshow/slide3.jpg",
@@ -18,16 +18,16 @@ const slides = [
 ];
 
 console.log(slides);
+
 const dots = document.querySelector(".dots");
 const arrowright = document.querySelector(".arrow_right");
 const arrowleft = document.querySelector(".arrow_left");
 const img = document.querySelector("#banner img");
-
 const p = document.querySelector("#banner p");
-
-
-
 let index = 0
+
+/***dots */
+
 function displaydots() {
 	for (let i = 0; i < slides.length; i++) {
 		const dot = document.createElement("div")
@@ -40,6 +40,8 @@ function displaydots() {
 }
 displaydots();
 
+/**clic droit */
+
 function clickright() {
 	arrowright.addEventListener("click", () => {
 		const arrayDots = document.querySelectorAll(".dots .dot");
@@ -50,13 +52,14 @@ function clickright() {
 		}
 		arrayDots[index].classList.add("dot_selected");
 		img.src = slides[index].image;
-		p.textContent = slides[index].tagLine;
+		p.innerHTML = slides[index].tagLine;
 
 	});
 }
 
 clickright();
 
+/**clic gauche */
 function clickleft() {
 	arrowleft.addEventListener("click", () => {
 		const arrayDots = document.querySelectorAll(".dots .dot");
@@ -67,7 +70,7 @@ function clickleft() {
 		}
 		arrayDots[index].classList.add("dot_selected");
 		img.src = slides[index].image;
-		p.textContent = slides[index].tagLine;
+		p.innerHTML = slides[index].tagLine;
 
 	});
 }
